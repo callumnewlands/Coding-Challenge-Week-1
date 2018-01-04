@@ -1,12 +1,12 @@
-﻿Enum Suits
+﻿Public Enum Suits
     Spades
     Hearts
     Clubs
     Diamonds
 End Enum
 
-Enum Values
-    One
+Public Enum Values
+    Ace
     Two
     Three
     Four
@@ -21,7 +21,7 @@ Enum Values
     King
 End Enum
 
-Class Card
+Public Class Card
     Property Suit As Suits
     Property Value As Values
     ReadOnly Property Name As String
@@ -29,4 +29,9 @@ Class Card
             Return Value.ToString() + " of " + Suit.ToString()
         End Get
     End Property
+
+    Public Sub New(suit As Integer, value As Integer)
+        Me.Suit = suit
+        Me.Value = value
+    End Sub
 End Class
