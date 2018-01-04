@@ -11,8 +11,10 @@
     End Sub
 
     Public Sub Shuffle()
+
         Dim copyDeck(51) As Card
         Dim posList As List(Of Integer) = GetPositionsList()
+
         For i = 0 To 51
             Dim posListIndex As Integer = Int(Rnd() * (posList.Count))
             Dim newPosition As Integer = posList.Item(posListIndex)
