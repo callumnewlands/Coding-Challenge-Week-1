@@ -16,13 +16,14 @@
         Dim posList As List(Of Integer) = GetPositionsList()
 
         For i = 0 To 51
-            Dim posListIndex As Integer = Int(Rnd() * (posList.Count))
+            Dim posListIndex As Integer = Random(0, posList.Count - 1)
             Dim newPosition As Integer = posList.Item(posListIndex)
             posList.RemoveAt(posListIndex)
             copyDeck(newPosition) = Cards(i)
         Next
         CopyToCards(copyDeck)
     End Sub
+
     Private Function GetPositionsList() As List(Of Integer)
         Dim list As New List(Of Integer)
         For i = 0 To 51
@@ -30,12 +31,17 @@
         Next
         Return list
     End Function
+
     Private Sub CopyToCards(newDeck() As Card)
         Cards.Clear()
         For i = 0 To newDeck.Length - 1
             Cards.Enqueue(newDeck(i))
         Next
     End Sub
+
+    Private Function Random(min As Integer, max As Integer) As Integer
+        Return Int(Rnd() * (max + 1))
+    End Function
 
     Public Function DealNextCard() As Card
         Return Cards.Dequeue()
