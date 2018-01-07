@@ -16,6 +16,7 @@
         Dim posList As List(Of Integer) = GetPositionsList()
 
         For i = 0 To 51
+            'selects a random new position in the deck for the card at index i
             Dim posListIndex As Integer = Random(0, posList.Count - 1)
             Dim newPosition As Integer = posList.Item(posListIndex)
             posList.RemoveAt(posListIndex)
